@@ -1,22 +1,16 @@
-import { useState } from 'react'
-import './App.css'
+import './App.css';
+import React from 'react';
+import TodoList from './components/TodoList';
+import AddTodoForm from './components/AddTodoForm';
 
-function App() {
-  const todoList = [
-    {id: 1, title: "Complete assignment"},
-    {id: 2, title: "Read the book"},
-    {id: 3, title: "Watch the video class"},
-  ]
+const Heading = () => <h1>Todo list</h1>
 
-  return (
-    <div>
-      <h1>Todo List</h1>
-      <ul>
-        {todoList.map(({id, title}) => (<li key={id}>{title}</li>))}
-      </ul>
-    </div>
+const App = () => (
+  <div>
+    <Heading/>
+    <AddTodoForm/>
+    <TodoList/>
+  </div>
+)
 
-  )
-}
-
-export default App
+export default App;
