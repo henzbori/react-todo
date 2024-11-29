@@ -1,10 +1,10 @@
 import TodoListItem from "./TodoListItem";
 
-const TodoList = (props) => {
+const TodoList = ({ todoList }) => {
   return (
     <ul>
-      {props.list.map((item) => (
-        <TodoListItem key={item.id} title={item.title}/>
+      {todoList.map(({ id, title }) => (
+        <TodoListItem key={id} title={title}/>
         ))}
     </ul>
   );
