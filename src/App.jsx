@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
 import AddTodoForm from './components/AddTodoForm';
@@ -6,33 +6,28 @@ import AddTodoForm from './components/AddTodoForm';
 
 const Heading = () => <h1>Todo list</h1>
 
-const App = () => {
-  // const todoList = [
-  //   {
-  //     id: 1, 
-  //     title: "Complete assignment"
-  //   },
-  //   {
-  //     id: 2, 
-  //     title: "Read the book"
-  //   },
-  //   {
-  //     id: 3, 
-  //     title: "Watch the video class"
-  //   },
-  // ];
-  // creating state
+const useSemiPersistentState = (key, initialValue) => {
+  const [value, setValue] = useState(
+    JSON.parse(localStorage.getItem(key)) || initialValue
+  );
   
-  const [todoList, setTodoList] = useState([]);
+    useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+  return [value, setValue];
+};
+
+const App = () => {
+  const [todoList, setTodoList] = useSemiPersistentState("savedTodoList", "");
   const addTodo = (newTodo) => {
     setTodoList([newTodo, ...todoList]);
   }
   return (
-    <div>
+    <>
       <Heading/>
       <AddTodoForm onAddTodo={addTodo}/>
       <TodoList todoList={todoList} />
-    </div>
+    </>
   )
 }
 
