@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect } from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
 import AddTodoForm from './components/AddTodoForm';
@@ -18,7 +18,13 @@ const useSemiPersistentState = (key, initialValue) => {
 };
 
 const App = () => {
-  const [todoList, setTodoList] = useSemiPersistentState("savedTodoList", "");
+  const [todoList, setTodoList] = useSemiPersistentState("savedTodoList", []);
+  const removeTodo = (item) => {
+    const filteredTodo = todoList.filter(
+    (todo) => item.id !== todo.id
+    );
+    setTodoList(filteredTodo);
+  }
   const addTodo = (newTodo) => {
     setTodoList([newTodo, ...todoList]);
   }
@@ -26,7 +32,7 @@ const App = () => {
     <>
       <Heading/>
       <AddTodoForm onAddTodo={addTodo}/>
-      <TodoList todoList={todoList} />
+      <TodoList list={todoList} onRemoveTodo={removeTodo}/>
     </>
   )
 }
