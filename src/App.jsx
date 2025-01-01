@@ -12,13 +12,13 @@ const App = () => {
   useEffect(() => {
     new Promise((resolve, reject) => 
       setTimeout(
-        () => resolve({data: { todoList: JSON.parse(localStorage.getItem("savedTodoList")) } }),
+        () => resolve({data: { todoList: JSON.parse(localStorage.getItem("savedTodoList")) || [] } }),
       2000
       )
     ).then((result) => {
       setTodoList(result.data.todoList);
       setIsLoading(false);
-    })
+    }).catch(error => console.log("error", {error}))
   }, []);
   
   useEffect(() => {
