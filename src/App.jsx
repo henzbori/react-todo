@@ -38,6 +38,7 @@ const App = () => {
       setIsLoading(false);
     } catch (error) {
       console.error("Fetch API error:", error.message);
+      setIsLoading(false);
       throw error;
     }
   }
