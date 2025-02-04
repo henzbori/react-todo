@@ -1,0 +1,18 @@
+.ListItem {
+    color:aquamarine;
+    padding: 1rem;
+    margin: 0.5rem;
+    /* width: 30vw; */
+    list-style-type:none;
+}
+
+.trashIcon {
+    margin: 0 1%;
+    font-size: large;
+    /* display: inline-block; */
+    color:black;
+
+}
+.trashIcon:hover {
+    color:crimson
+}
