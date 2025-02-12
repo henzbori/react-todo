@@ -33,7 +33,8 @@ const App = () => {
       const todos = data.records.map((todo)=> {
         const newTodo =  {
           id: todo.id,
-          title: todo.fields.title
+          title: todo.fields.title,
+          completed: todo.fields.completed,
         }
         return newTodo;
       })
@@ -52,6 +53,14 @@ const App = () => {
   useEffect(() => {
     !(isLoading) && localStorage.setItem("savedTodoList", JSON.stringify(todoList));
   }, [todoList]);
+
+    const toggleTodo = (item) => {
+    setTodoList((todoList) =>
+      todoList.map((todo) =>
+        todo.id === item ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
 
   const removeTodo = (item) => {
     const filteredTodo = todoList.filter(
@@ -74,6 +83,7 @@ const App = () => {
             ) : (
               <TodoList 
                 list={todoList} 
+                onToggle={toggleTodo}
                 onRemoveTodo={removeTodo}
               />
             )}
