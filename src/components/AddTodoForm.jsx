@@ -1,5 +1,7 @@
 import { useState } from "react";
 import InputWithLabel from "../InputWithLabel";
+import { GiIBrick, GiJBrick, GiLBrick, GiOBrick, GiSBrick, GiTBrick, GiZBrick } from "react-icons/gi";
+
 
 let  AddTodoForm = ({ onAddTodo }) => { 
     const [todoTitle, setTodoTitle] = useState("");
@@ -12,7 +14,11 @@ let  AddTodoForm = ({ onAddTodo }) => {
         onAddTodo({title: todoTitle, id: Date.now() });
         setTodoTitle("");
     }
-   
+    const array = [<GiIBrick />, < GiJBrick />, <GiLBrick />, < GiOBrick />, <GiSBrick />, <GiTBrick />, < GiZBrick />];
+
+    const randomIndex = Math.floor(Math.random() * array.length);
+    const randomElement = array[randomIndex];
+
     return (
         <form onSubmit={handleAddTodo}>
             <InputWithLabel
@@ -20,9 +26,9 @@ let  AddTodoForm = ({ onAddTodo }) => {
                 value={todoTitle} 
                 onChange={handleTitleChange}
             >
-                <strong>Title: </strong>
-            </InputWithLabel> 
-            <button type="submit">Add</button>
+                <strong>Title:</strong>
+            </InputWithLabel>
+            <button type="submit" className="addButton">{randomElement}</button>
         </form>
     );
 }

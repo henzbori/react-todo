@@ -7,7 +7,7 @@ import AddTodoForm from './components/AddTodoForm';
 
 
 
-const Heading = () => <h1>Todo list</h1>
+const Heading = () => <h1 className="heading">Todo list</h1>
 
 const App = () => {
   const [todoList, setTodoList] = useState([]);
@@ -67,7 +67,7 @@ const App = () => {
       <Routes>
          <Route path="/" element={
           <>
-            <Heading/>
+            <Heading />
             <AddTodoForm onAddTodo={addTodo}/>
             {isLoading ? (
               <p> Loading...</p>
