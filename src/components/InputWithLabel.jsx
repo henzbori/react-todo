@@ -31,7 +31,7 @@ const InputWithLabel = ({
     }
 
 InputWithLabel.propTypes = {
-    id: PropTypes.number.isRequired, 
+    id: PropTypes.string, 
     value: PropTypes.any,
     type: PropTypes.string,
     onChange: PropTypes.func,

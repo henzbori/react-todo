@@ -20,7 +20,7 @@ const App = () => {
         Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
       }
     };
-    const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}`;
+    const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}?view=${"Grid%20view"}&sort%5B0%5D%5Bfield%5D=${"title"}&sort%5B0%5D%5Bdirection%5D=${"asc"}`;
     try {
       const response = await fetch(url, options);
 
@@ -29,7 +29,16 @@ const App = () => {
       }
 
       const data = await response.json();
-
+      console.log(data);
+      data.records.sort(function(objectA, objectB) {
+        if (objectA.fields.title < objectB.fields.title) {
+          return -1;
+        } else if (objectA.fields.title > objectB.fields.title) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
       const todos = data.records.map((todo)=> {
         const newTodo =  {
           id: todo.id,
