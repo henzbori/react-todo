@@ -1,6 +1,7 @@
 import { useState } from "react";
-import InputWithLabel from "../InputWithLabel";
+import InputWithLabel from "./InputWithLabel";
 import { GiIBrick, GiJBrick, GiLBrick, GiOBrick, GiSBrick, GiTBrick, GiZBrick } from "react-icons/gi";
+import PropTypes from "prop-types";
 
 
 let  AddTodoForm = ({ onAddTodo }) => { 
@@ -33,4 +34,7 @@ let  AddTodoForm = ({ onAddTodo }) => {
     );
 }
 
+AddTodoForm.propTypes = {
+    onAddTodo: PropTypes.func,
+}
 export default AddTodoForm;
