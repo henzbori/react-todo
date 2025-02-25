@@ -5,20 +5,23 @@ import { BiSolidTrash } from "react-icons/bi";
 
 const TodoListItem = ({ item, onToggle, onRemoveTodo }) => {
     return (
-        <li style={{ textDecoration: item.completed ? "line-through" : "none" }} className={style.ListItem}>
+        <li className={`${style.ListItem} ${item.completed ? style.completed : ''}`}>
+             <input
+              type="checkbox"
+              checked={item.completed}
+              onChange={() => onToggle(item.id)}
+            />
             <span onClick={() => onToggle(item.id)}>{item.title}</span>
             <BiSolidTrash onClick={() => onRemoveTodo(item)} className={style.trashIcon}/>
         </li>
     );
 }
 
-    
-
 TodoListItem.propTypes = {
     item: PropTypes.shape({
-        id: PropTypes.string, 
+        id: PropTypes.string.isRequired, 
         title: PropTypes.string.isRequired, 
-        completed: PropTypes.bool,
+        completed: PropTypes.bool.isRequired,
     }).isRequired,
     onToggle: PropTypes.func.isRequired,
     onRemoveTodo: PropTypes.func.isRequired,

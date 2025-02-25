@@ -1,0 +1,10 @@
+.landing-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.landing-image {
+  max-width: 80%;
+  height: auto;
+  border-radius: 20px;
+}
