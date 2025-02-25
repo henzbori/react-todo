@@ -1,9 +1,10 @@
 .ListItem {
-    color:aquamarine;
+    color:rgb(255, 255, 255);
     padding: 1rem;
     margin: 0.5rem;
-    /* width: 30vw; */
+    font-size:large;
     list-style-type:none;
+
 }
 
 .trashIcon {
@@ -13,6 +14,12 @@
     color:black;
 
 }
+
 .trashIcon:hover {
     color:crimson
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
 }

@@ -27,7 +27,6 @@ const InputWithLabel = ({
                 />
             </>
         )
-       
     }
 
 InputWithLabel.propTypes = {

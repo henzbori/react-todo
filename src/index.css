@@ -66,3 +66,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.go-back {
+  background-color: rgba(61, 244, 0, 0.684);
+  color:whitesmoke;
+  font-family: 'Bungee Inline', 'Rajdhani','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: small;
+  font-weight: bold;
+}
+
+.go-back:hover {
+  background-color: whitesmoke;
+  color: rgba(61, 244, 0, 0.684);
+}
