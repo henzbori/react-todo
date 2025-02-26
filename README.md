@@ -1,3 +1,15 @@
+To do List Page. 
+Just click start to start making your to do list.  
+You need to delete todos which are already there.
+All todos will be saved at airtable database.
+
+Have fun!
+
+
+
+
+image by Michaela St on Unsplash
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
