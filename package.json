@@ -1,14 +1,17 @@
 {
+  "homepage": "https://henzbori.github.io/react-todo/",
   "name": "react-todo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"  
+},
   "dependencies": {
     "instead": "^1.0.3",
     "prop-types": "^15.8.1",
@@ -26,7 +29,8 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.14",
+    "gh-pages": "^6.3.0",
     "globals": "^15.11.0",
-    "vite": "^5.4.10"
+    "vite": "^6.2.0"
   }
 }

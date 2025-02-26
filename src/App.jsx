@@ -136,10 +136,10 @@ const App = () => {
 
   return (
     <ThemeProvider>
-      <Router>
+      <Router basename="/react-todo/">
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/todo" element={
+          <Route path="todo" element={
             <>
               <ThemeToggleButton />
               <Heading />
